@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#160f0a">
+<title>Rib Mission · 6 Racks by 4 PM</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --char:#160f0a; --smoke:#1f1610; --card:#261b12; --edge:#3a2a1b;
+  --cream:#f3e5d0; --mut:#b39c82; --fire:#ff7a2f; --ember:#e8542f;
+  --ok:#7cb87a; --warn:#e8b23d; --bad:#e0523f;
+  --safe-b:env(safe-area-inset-bottom,0px);
+}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html{scroll-behavior:smooth}
+body{background:var(--char);color:var(--cream);font:16px/1.6 'Source Serif 4',Georgia,serif;padding-bottom:calc(20px + var(--safe-b));
+ background-image:radial-gradient(70% 30% at 50% 0%, rgba(255,122,47,.09), transparent 65%)}
+h1,h2,h3{font-family:'Alfa Slab One',serif;font-weight:400;letter-spacing:.01em}
+main{max-width:640px;margin:0 auto;padding:0 18px}
+
+header{text-align:center;padding:44px 18px 8px}
+header .flag{font-size:22px;letter-spacing:.4em}
+header h1{font-size:clamp(38px,11vw,58px);line-height:1.02;margin:12px 0 8px;color:var(--fire);text-shadow:0 4px 0 rgba(0,0,0,.5)}
+header p{color:var(--mut);font-style:italic}
+
+/* live panel */
+#live{background:var(--card);border:2px solid var(--edge);border-radius:20px;padding:18px;margin:22px 0;
+ box-shadow:0 12px 40px rgba(0,0,0,.45)}
+#live .lab{font-family:'Alfa Slab One',serif;font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--fire)}
+#live .lab .dot{display:inline-block;width:9px;height:9px;border-radius:50%;background:var(--ok);margin-right:7px;animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
+.gauges{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:14px 0 6px}
+.g{background:rgba(0,0,0,.3);border-radius:14px;padding:12px 8px;text-align:center;border:1px solid var(--edge)}
+.g .t{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--mut)}
+.g .v{font-family:'Alfa Slab One',serif;font-size:30px;margin:2px 0;color:var(--cream)}
+.g .v.ok{color:var(--ok)}.g .v.warn{color:var(--warn)}.g .v.bad{color:var(--bad)}
+.g .u{font-size:11px;color:var(--mut)}
+#stamp{font-size:12.5px;color:var(--mut);text-align:center;font-style:italic}
+#stamp.stale{color:var(--warn)}
+#note{font-size:13.5px;color:var(--cream);text-align:center;margin-top:8px;font-style:italic}
+
+/* timeline */
+section{padding:26px 0 0}
+section>h2{font-size:24px;color:var(--fire);margin-bottom:6px}
+.step{display:flex;gap:14px;background:var(--card);border:1px solid var(--edge);border-radius:16px;padding:15px;margin:12px 0;transition:border-color .3s, box-shadow .3s}
+.step.now{border-color:var(--fire);box-shadow:0 0 0 2px rgba(255,122,47,.35);position:relative}
+.step.now::before{content:"YOU ARE HERE";position:absolute;top:-9px;right:14px;background:var(--fire);color:var(--char);
+ font-family:'Alfa Slab One',serif;font-size:9px;letter-spacing:.14em;padding:2px 9px;border-radius:999px}
+.step.done{opacity:.5}
+.step .when{font-family:'Alfa Slab One',serif;font-size:15px;color:var(--fire);white-space:nowrap;min-width:74px}
+.step h3{font-size:15.5px;font-family:'Source Serif 4',serif;font-weight:600;margin-bottom:3px;color:var(--cream)}
+.step p{font-size:13.8px;color:var(--mut)}
+.step p strong{color:var(--cream)}
+
+.tips{background:linear-gradient(150deg,#2a1c10,var(--card));border:1px solid var(--edge);border-radius:16px;padding:16px;margin:16px 0}
+.tips h3{font-size:16px;color:var(--warn);margin-bottom:8px;font-family:'Alfa Slab One',serif}
+.tips li{margin:8px 0 8px 18px;font-size:14px;color:var(--mut)}
+.tips li strong{color:var(--cream)}
+
+footer{text-align:center;color:var(--mut);font-size:12px;padding:30px 0 12px;font-style:italic}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="flag">🇺🇸 🍖 🇺🇸</div>
+  <h1>RIB MISSION</h1>
+  <p>Six racks of baby backs · fridge to table by 4:00 PM · Yoder YS640 · July 4, 2026</p>
+</header>
+
+<main>
+
+<div id="live">
+  <div class="lab"><span class="dot"></span>Live from the Yoder</div>
+  <div class="gauges">
+    <div class="g"><div class="t">Pit</div><div class="v" id="pit">—</div><div class="u">target 250°F</div></div>
+    <div class="g"><div class="t">Probe 1</div><div class="v" id="p1">—</div><div class="u">done ≈ 195–203</div></div>
+    <div class="g"><div class="t">Probe 2</div><div class="v" id="p2">—</div><div class="u">done ≈ 195–203</div></div>
+  </div>
+  <div id="stamp">connecting…</div>
+  <div id="note"></div>
+</div>
+
+<section>
+  <h2>The Timeline</h2>
+
+  <div class="step" data-start="00:00" data-end="10:00">
+    <div class="when">NOW</div>
+    <div><h3>Ribs out of the fridge</h3>
+    <p>All 6 racks on sheet pans. Rub's on — just check the <strong>membrane is off</strong> the bone side of each rack (corner of a paper towel, pull diagonally). Cold ribs onto the smoker is fine; no need to temper.</p></div>
+  </div>
+
+  <div class="step" data-start="10:00" data-end="10:30">
+    <div class="when">10:00</div>
+    <div><h3>Fire the YS640</h3>
+    <p>Set <strong>250°F</strong>. Full hopper — 6 hours of cooking burns ~10+ lbs of pellets. Let it settle at temp a full 15 minutes before loading; six cold racks will sag the pit 20–30° and that's fine. <strong>Don't chase it</strong> — it recovers.</p></div>
+  </div>
+
+  <div class="step" data-start="10:30" data-end="12:30">
+    <div class="when">10:30</div>
+    <div><h3>Six racks on</h3>
+    <p><strong>Bone side down</strong>, no overlapping — use the second shelf for 2–3 racks. On the YS640 the firebox side runs hotter, so put the meatier racks there. Stick probe 1 between bones of the thickest rack, probe 2 in a top-shelf rack. Then close the lid and <strong>leave it closed</strong>.</p></div>
+  </div>
+
+  <div class="step" data-start="12:30" data-end="13:30">
+    <div class="when">12:30</div>
+    <div><h3>Rotate + spritz (one lid opening)</h3>
+    <p>Swap top ↔ bottom shelves and spin racks front-to-back so everything sees equal heat. Quick spritz (apple juice/water 50:50) if the edges look dry. In and out in 3 minutes — every extra minute of open lid costs ~10 of recovery.</p></div>
+  </div>
+
+  <div class="step" data-start="13:30" data-end="14:30">
+    <div class="when">1:30</div>
+    <div><h3>Color checkpoint — wrap decision</h3>
+    <p>Mahogany and set? Ride unwrapped to the finish (better bark). Getting <strong>dark fast</strong>? Wrap the dark ones in foil with a splash of juice for ~1 hour. With 6 racks it's fine to wrap some and not others.</p></div>
+  </div>
+
+  <div class="step" data-start="14:30" data-end="15:15">
+    <div class="when">2:45</div>
+    <div><h3>Bend test window opens</h3>
+    <p>Pick a rack up with tongs a third from one end — done when it <strong>bends ~90° and the bark cracks</strong>. Probes reading 195–203°F between bones agrees. Racks will finish at different times; pull each as it passes, hold wrapped in a dry cooler.</p></div>
+  </div>
+
+  <div class="step" data-start="15:15" data-end="15:40">
+    <div class="when">3:15</div>
+    <div><h3>Sauce + set (optional)</h3>
+    <p>Thin coat, back on 15 minutes to tack up. Skip entirely if you're a dry-rub house — the ribs won't miss it.</p></div>
+  </div>
+
+  <div class="step" data-start="15:40" data-end="16:00">
+    <div class="when">3:40</div>
+    <div><h3>Rest</h3>
+    <p>Tent loosely with foil, 15–20 minutes. Slice <strong>bone side up</strong> so you can see what you're cutting. Single bones for the kids, doubles for adults.</p></div>
+  </div>
+
+  <div class="step" data-start="16:00" data-end="23:59">
+    <div class="when">4:00</div>
+    <div><h3>Serve 🎇</h3>
+    <p>Six racks ≈ 12–15 adult servings. Miller Lite goes in the left hand.</p></div>
+  </div>
+</section>
+
+<div class="tips">
+  <h3>⚠️ Six-Rack Rules</h3>
+  <ul>
+    <li><strong>Airflow beats position.</strong> A half-inch gap between racks matters more than which shelf they're on.</li>
+    <li><strong>Pit dips below 225 for 20+ min?</strong> Check the pellet hopper for a bridge/tunnel — stir it.</li>
+    <li><strong>Running late at 2:30?</strong> Wrap everything and bump to 275. Foil + higher heat claws back 45 minutes with barely any quality loss.</li>
+    <li><strong>Running early?</strong> Ribs hold beautifully — foil, towels, dry cooler, up to 2 hours.</li>
+  </ul>
+</div>
+
+<footer>Pit data relayed from Home Assistant by ClaudeClaw 🪶 · refreshes every few minutes during the cook</footer>
+
+</main>
+
+<script>
+// ---- live data ----
+function paint(id, val, lo, hi){
+  const el=document.getElementById(id);
+  if(val==null||isNaN(val)){el.textContent='—';el.className='v';return}
+  el.textContent=Math.round(val)+'°';
+  el.className='v '+(val<lo?'warn':val>hi?'bad':'ok');
+}
+async function load(){
+  try{
+    const r=await fetch('status.json?t='+Date.now(),{cache:'no-store'});
+    const s=await r.json();
+    paint('pit', s.pit, 235, 275);
+    paint('p1', s.probe1, 0, 205);
+    paint('p2', s.probe2, 0, 205);
+    const st=document.getElementById('stamp');
+    const age=(Date.now()-new Date(s.updated).getTime())/60000;
+    st.textContent='updated '+new Date(s.updated).toLocaleTimeString([], {hour:'numeric',minute:'2-digit'})+
+      (age>40?' — data is stale, check the ClaudeClaw chat':'');
+    st.className=age>40?'stale':'';
+    document.getElementById('note').textContent=s.note||'';
+  }catch(e){
+    document.getElementById('stamp').textContent='no data yet';
+  }
+}
+load(); setInterval(load, 120000);
+
+// ---- "you are here" ----
+function hhmm(t){const[p,q]=t.split(':');return (+p)*60+(+q)}
+function mark(){
+  const now=new Date(); const m=now.getHours()*60+now.getMinutes();
+  document.querySelectorAll('.step').forEach(s=>{
+    const a=hhmm(s.dataset.start), b=hhmm(s.dataset.end);
+    s.classList.toggle('now', m>=a&&m<b);
+    s.classList.toggle('done', m>=b);
+  });
+}
+mark(); setInterval(mark, 60000);
+</script>
+</body>
+</html>
