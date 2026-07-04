@@ -1,7 +1,7 @@
 {
-  "pit": 224.0,
+  "pit": null,
   "probe1": null,
-  "probe2": 104.4,
-  "updated": "2026-07-04T10:20:30-04:00",
-  "note": "Ribs are on! Pit dipped to 224 from the cold load — normal, it'll recover to 250. Probe 2 in meat at 104°. Probe 1 not connected. Lid stays closed until 12:30."
+  "probe2": null,
+  "updated": "2026-07-04T10:36:00-04:00",
+  "note": "FireBoard feed dropped out (last good read 10:20: pit 224°, probe 2 at 104°). Likely a brief cloud/wifi blip — rechecking in a few minutes. The cook itself is unaffected."
 }
