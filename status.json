@@ -1,7 +1,7 @@
 {
-  "pit": 228.0,
-  "probe1": 125.9,
-  "probe2": 194.2,
-  "updated": "2026-07-04T11:35:00-04:00",
-  "note": "About 1 hour in. FireBoard pit reads 228 — if the Yoder controller says 250, that's just probe placement (grate runs cooler than dome) and you're fine. If the controller also reads low, nudge setpoint to 265. Probe 1 at 126 is on pace. Probe 2 reads like it's in air, not meat — re-seat at the 12:30 opening."
+  "pit": 233.0,
+  "probe1": 135.0,
+  "probe2": 203.3,
+  "updated": "2026-07-04T12:05:00-04:00",
+  "note": "Pit climbing: 224 → 228 → 233. Slow but heading the right way. Probe 1 at 135° is right on pace. At the 12:30 opening: rotate racks, spritz, and re-seat probe 2 into meat (it's still reading air)."
 }
