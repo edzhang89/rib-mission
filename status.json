@@ -1,7 +1,7 @@
 {
-  "pit": 267.0,
-  "probe1": 179.3,
-  "probe2": 234.6,
-  "updated": "2026-07-04T15:05:00-04:00",
-  "note": "Setpoint bump worked — pit at 267 and probe 1 has broken the stall, 163 → 179 and climbing fast. Projection: probe-tender (198–203°) around 3:45. When it lands: straight to foil + towels + cooler, on the road by 4:20. Right back on schedule."
+  "pit": 245.0,
+  "probe1": 90.8,
+  "probe2": 93.9,
+  "updated": "2026-07-04T15:35:00-04:00",
+  "note": "Both probes reading ~91° = they're out of the meat (holiday-afternoon air temp), which usually means the racks just got foil-wrapped. Going time-based from here: wrapped at ~265, target pull 4:00–4:10 → toothpick-check one rack, then cooler and roll at 4:20."
 }
