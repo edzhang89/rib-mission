@@ -82,6 +82,7 @@ footer{text-align:center;color:var(--mut);font-size:12px;padding:30px 0 12px;fon
   </div>
   <div id="stamp">connecting…</div>
   <div id="note"></div>
+  <button id="refresh" onclick="load(true)" style="display:block;width:100%;margin-top:12px;background:var(--fire);color:var(--char);border:none;border-radius:999px;padding:12px;font-family:'Alfa Slab One',serif;font-size:13px;letter-spacing:.14em;text-transform:uppercase;cursor:pointer">↻ Refresh Now</button>
   <details style="margin-top:12px">
     <summary style="font-family:'Alfa Slab One',serif;font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--fire);cursor:pointer;list-style:none">▶ FireBoard live session (real-time)</summary>
     <iframe src="https://share.fireboard.io/EFF85E" loading="lazy"
@@ -170,7 +171,9 @@ function paint(id, val, lo, hi){
   el.textContent=Math.round(val)+'°';
   el.className='v '+(val<lo?'warn':val>hi?'bad':'ok');
 }
-async function load(){
+async function load(manual){
+  const btn=document.getElementById('refresh');
+  if(manual&&btn){btn.textContent='↻ Refreshing…'; setTimeout(()=>btn.textContent='↻ Refresh Now',1200)}
   try{
     const r=await fetch('status.json?t='+Date.now(),{cache:'no-store'});
     const s=await r.json();
