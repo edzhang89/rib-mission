@@ -1,7 +1,7 @@
 {
-  "pit": 266.0,
+  "pit": 224.0,
   "probe1": null,
-  "probe2": null,
-  "updated": "2026-07-04T10:13:30-04:00",
-  "note": "Pit at 266° and settling toward 250. Plug in both probes, then ribs on at 10:30."
+  "probe2": 104.4,
+  "updated": "2026-07-04T10:20:30-04:00",
+  "note": "Ribs are on! Pit dipped to 224 from the cold load — normal, it'll recover to 250. Probe 2 in meat at 104°. Probe 1 not connected. Lid stays closed until 12:30."
 }
