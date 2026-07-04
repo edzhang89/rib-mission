@@ -1,7 +1,7 @@
 {
-  "pit": 221.0,
-  "probe1": 163.0,
-  "probe2": 216.3,
-  "updated": "2026-07-04T14:35:00-04:00",
-  "note": "Stall is running long — probe 1 has sat at ~163° for an hour with the pit in the low 220s. To make the 4:20 departure: wrap the racks in foil now and bump the setpoint to 275. That claws back the time with no real quality cost."
+  "pit": 267.0,
+  "probe1": 179.3,
+  "probe2": 234.6,
+  "updated": "2026-07-04T15:05:00-04:00",
+  "note": "Setpoint bump worked — pit at 267 and probe 1 has broken the stall, 163 → 179 and climbing fast. Projection: probe-tender (198–203°) around 3:45. When it lands: straight to foil + towels + cooler, on the road by 4:20. Right back on schedule."
 }
