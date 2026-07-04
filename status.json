@@ -1,7 +1,7 @@
 {
-  "pit": 213.0,
-  "probe1": 162.3,
-  "probe2": 205.9,
-  "updated": "2026-07-04T13:35:00-04:00",
-  "note": "Pit dipped to 213 right at the 1:30 color check — consistent with the lid being open, should recover within 15 min. Probe 1 at 162° pushing through the stall nicely. Next: bend tests from 2:45."
+  "pit": 221.0,
+  "probe1": 163.0,
+  "probe2": 216.3,
+  "updated": "2026-07-04T14:35:00-04:00",
+  "note": "Stall is running long — probe 1 has sat at ~163° for an hour with the pit in the low 220s. To make the 4:20 departure: wrap the racks in foil now and bump the setpoint to 275. That claws back the time with no real quality cost."
 }
