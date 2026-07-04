@@ -2,6 +2,6 @@
   "pit": 228.0,
   "probe1": 125.9,
   "probe2": 194.2,
-  "updated": "2026-07-04T10:45:00-04:00",
-  "note": "Feed is back. Pit 228 and recovering from the cold load — normal. Heads up: probe 2 jumped 104→194 in 25 min, which reads like it's in air near the grate, not in meat. Worth re-seating it between bones at the 12:30 lid opening."
+  "updated": "2026-07-04T11:35:00-04:00",
+  "note": "About 1 hour in. FireBoard pit reads 228 — if the Yoder controller says 250, that's just probe placement (grate runs cooler than dome) and you're fine. If the controller also reads low, nudge setpoint to 265. Probe 1 at 126 is on pace. Probe 2 reads like it's in air, not meat — re-seat at the 12:30 opening."
 }
